@@ -1,3 +1,21 @@
 <h3>DISPLAY COMPONENT</h3>
-<h5>Displaying the property message: </h5>{{ message }}
+<h4>String Interpolation</h4>
+<h5>Displaying the property message: {{ message }}</h5>
+<div>
+    <h4>Property Binding</h4>
+    <!-- Movie Name: <input type="text" value="{{ movieName }}"> -->
+    Movie Name: <input type="text" [value]="movieName">  <!-- here the property value of the text box is bound to the varibale movieName-->
+</div>
+<div>
+    <h4>Event Binding</h4>
+    <button type="button" (click)="showMovieName()">Display Movie Name</button>{{ movieName }}
+</div>
+<div>
+    <h4>Counter example using 2 way binding</h4>
+    <button type="button" (click)="decrementCounter()">-</button>
+    <!-- <input type="text" [value]="counter"> -->
+    <input type="text" [(ngModel)]="counter">
+    <button type="button" (click)="incrementCounter()">+</button>
+</div>
+
 

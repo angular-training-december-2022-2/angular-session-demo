@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="mt-5"><h3>LIST OF COLORS</h3></div>
+    <ul class="list-group">
+        <!-- <li class="list-group-item" *ngFor="let eachColor of allColors">{{ eachColor }}</li> -->
+        <app-color-item 
+            *ngFor="let eachColor of allColors" 
+            [receivedColor]="eachColor" 
+            (removeEmitter)="removeColor($event)"></app-color-item>
+    </ul>
+</div>
