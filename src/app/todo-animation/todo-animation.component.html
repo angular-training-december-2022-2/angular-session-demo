@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>TO DO LIST</h2>
+    <div class="form-group">
+        <input type="text" (keyup.enter)="addToList()" [(ngModel)]="work" class="form-control">
+    </div>
+    <div class="list-group" >
+        <button 
+            @fade
+            class="list-group-item text-left"
+            *ngFor="let eachWork of toDoList" 
+            (click)="removeFromList(eachWork)">{{ eachWork }}</button>
+    </div>
+</div>

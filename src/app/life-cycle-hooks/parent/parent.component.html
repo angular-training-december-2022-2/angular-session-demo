@@ -1,0 +1,12 @@
+<div class="container m-5 bg-info">
+    <div class="m-5">
+        <div class="m-5">
+            <input type="text" [(ngModel)]="valueMsg" >
+            <button class="btn btn-danger ml-5" (click)="sending()">Send to child</button>
+        </div>
+        <div>
+            <app-child [msgFromParent] = "msgToChild"></app-child>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,4 @@
+Student Mark: <input type="text" [(ngModel)]="studentMark">
+<h2 [ngClass]="{'text-danger':studentMark<50, 'text-success':studentMark>50}"> {{ studentMark }}</h2>
+
+
