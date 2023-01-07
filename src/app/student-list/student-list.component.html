@@ -1,0 +1,34 @@
+<div class="container m-5 p-5">
+    
+    <h2 appHoverHighlight>LIST OF STUDENTS</h2>
+    <div class="form-group">
+        <input type="text" [(ngModel)]="filterData" class="form-control" placeholder="Search By Gender">
+    </div>
+    <table class="table table-striped" (mousemove)="onMouseOver()">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>TOTAL MARKS</th>
+                <th>PERCENTAGE</th>
+                <th>DOB</th>
+                <th>GENDER</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr appHoverHighlight *ngFor="let student of allStudents | filterList: filterData ">
+                <td>{{ student.id }}</td>
+                <td>{{ student.studentName | uppercase }} </td>
+                <td>{{ student.studentTotalMarks }}</td>
+                <!-- <td>{{ student.studentTotalMarks / 500 * 100 | number:'1.2'}}</td> -->
+                <!-- <td>{{ student.studentTotalMarks / 500 | percent}}</td> -->
+                <td>{{ student.studentTotalMarks | mypercent:2}}</td>
+                <td>{{ student.studentDOB | date:'long' | uppercase }}</td>
+                <td>{{ student.studentGender }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-success" (click)="addStudent()">Add Test Student</button>
+    </div>
+</div>

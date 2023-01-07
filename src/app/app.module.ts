@@ -14,6 +14,10 @@ import { ChildComponent } from './life-cycle-hooks/parent/child/child.component'
 import { ParentComponent } from './life-cycle-hooks/parent/parent.component';
 import { TodoAnimationComponent } from './todo-animation/todo-animation.component';
 import { NgclassComponent } from './ngclass/ngclass.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { HoverHighlightDirective } from './custom-directives/hover-highlight.directive';
+import { MypercentPipe } from './custom-pipes/mypercent.pipe';
+import { FilterListPipe } from './custom-pipes/filter-list.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { NgclassComponent } from './ngclass/ngclass.component';
     ParentComponent,
     ChildComponent,
     TodoAnimationComponent,
-    NgclassComponent
+    NgclassComponent,
+    StudentListComponent,
+    HoverHighlightDirective,
+    MypercentPipe,
+    FilterListPipe
   ],
   imports: [
     BrowserModule,
