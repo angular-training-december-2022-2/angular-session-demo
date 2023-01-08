@@ -1,0 +1,25 @@
+{
+  "students": [
+    {
+      "id": 101,
+      "studentName": "Ram Mohan",
+      "studentTotalMarks": 358,
+      "studentDOB": "02-05-1999",
+      "studentGender": "Male"
+    },
+    {
+      "id": 102,
+      "studentName": "Nithya Mahadevan",
+      "studentTotalMarks": 240,
+      "studentDOB": "02-05-1999",
+      "studentGender": "Female"
+    },
+    {
+      "id": 104,
+      "studentName": "Meena Kumari",
+      "studentTotalMarks": 353,
+      "studentDOB": "02-05-1999",
+      "studentGender": "Female"
+    }
+  ]
+}

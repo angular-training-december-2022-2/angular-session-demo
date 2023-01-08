@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,8 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { HoverHighlightDirective } from './custom-directives/hover-highlight.directive';
 import { MypercentPipe } from './custom-pipes/mypercent.pipe';
 import { FilterListPipe } from './custom-pipes/filter-list.pipe';
+import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
+import { StudentHttpListComponent } from './student-http/student-http-list/student-http-list.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +37,16 @@ import { FilterListPipe } from './custom-pipes/filter-list.pipe';
     StudentListComponent,
     HoverHighlightDirective,
     MypercentPipe,
-    FilterListPipe
+    FilterListPipe,
+    ObservableDemoComponent,
+    StudentHttpListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
