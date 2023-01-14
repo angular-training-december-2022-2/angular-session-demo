@@ -12,6 +12,7 @@ import { Student } from '../student';
 })
 export class StudentHttpListComponent implements OnInit {
 
+  errorMessage: string = '';
   filterData: string = '';
 
   allStudents: Student[] = []; // the data for this array will come from the StudentService class
@@ -22,8 +23,14 @@ export class StudentHttpListComponent implements OnInit {
 
   loadData(){
     this.studentHttpService.fetchAllStudents().subscribe({
-      next: (response)=> { this.allStudents = response; },
-      error: (err)=> {console.log(err.message);}
+      next: (response)=> { 
+        this.errorMessage = '';
+        this.allStudents = response; 
+      },
+      error: (err)=> {
+        console.log(err.message);
+        this.errorMessage = "Some Internal Issue. Please try later!!"
+      }
      })
   }
 

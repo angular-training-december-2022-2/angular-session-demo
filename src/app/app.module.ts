@@ -21,6 +21,7 @@ import { MypercentPipe } from './custom-pipes/mypercent.pipe';
 import { FilterListPipe } from './custom-pipes/filter-list.pipe';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 import { StudentHttpListComponent } from './student-http/student-http-list/student-http-list.component';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { StudentHttpListComponent } from './student-http/student-http-list/stude
     MypercentPipe,
     FilterListPipe,
     ObservableDemoComponent,
-    StudentHttpListComponent
+    StudentHttpListComponent, 
+    WeatherComponent
   ],
   imports: [
     BrowserModule,

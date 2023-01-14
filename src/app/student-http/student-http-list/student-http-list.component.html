@@ -1,6 +1,6 @@
 <div class="container m-5 p-5">
-    
-    <h2 appHoverHighlight>LIST OF STUDENTS</h2>
+    <div class="text-danger">{{ errorMessage }}</div>
+    <h2>LIST OF STUDENTS</h2>
     <div class="form-group">
         <input type="text" [(ngModel)]="filterData" class="form-control" placeholder="Search By Gender">
     </div>
