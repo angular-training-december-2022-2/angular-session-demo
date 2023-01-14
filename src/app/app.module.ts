@@ -22,6 +22,11 @@ import { FilterListPipe } from './custom-pipes/filter-list.pipe';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 import { StudentHttpListComponent } from './student-http/student-http-list/student-http-list.component';
 import { WeatherComponent } from './weather/weather.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ErrorComponent } from './error/error.component';
+import { StudentHttpViewComponent } from './student-http/student-http-view/student-http-view.component';
+import { DemoParentHeaderComponent } from './demo-parent-header/demo-parent-header.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,7 @@ import { WeatherComponent } from './weather/weather.component';
     FilterListPipe,
     ObservableDemoComponent,
     StudentHttpListComponent, 
-    WeatherComponent
+    WeatherComponent, HeaderComponent, FooterComponent, ErrorComponent, StudentHttpViewComponent, DemoParentHeaderComponent
   ],
   imports: [
     BrowserModule,
