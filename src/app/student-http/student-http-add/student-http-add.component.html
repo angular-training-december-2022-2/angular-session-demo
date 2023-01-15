@@ -1,0 +1,45 @@
+<div class="container">
+    <form (ngSubmit)="sendData(templateForm)" #templateForm="ngForm">
+        <div class="card">
+            <div class="card-title bg-success text-light">
+                <h4 class="m-2">Add A Student</h4>
+            </div>
+            <div class="card-body" #myDiv>
+ 
+                <div ngModelGroup="personalData">
+                    <div class="form-group">
+                        <label for="sName">Student Name: </label>
+                        <input type="text" class="form-control" id="sName" name="studName" ngModel>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sMark">Student Mark: </label>
+                        <select class="form-control" id="sMark" name="studMark" ngModel>
+                            <option *ngFor="let mark of allMarks" value="{{ mark.value }}">{{ mark.value }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sDOB">Student DOB: </label>
+                    <input type="date" class="form-control" id="sDOB" name="studDOB" ngModel>
+                </div>
+
+                Student Gender:
+                <div class="form-check-inline">
+                    <span *ngFor="let gender of allGender">
+                        <label class="form-check-label m-1">
+                            <input type="radio" value="{{ gender.value }}" class="form-check-input" name="studGender" ngModel>
+                            {{ gender.value }}
+                        </label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="card-footer bg-success">
+                <button type="button" class="btn btn-light text-success" (click)="setDefault(templateForm)">SET DEFAULT</button>
+                <button type="submit" class="btn btn-light text-success">ADD STUDENT</button>
+            </div>
+        </div>
+    </form>
+</div>

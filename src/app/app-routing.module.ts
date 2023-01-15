@@ -7,6 +7,8 @@ import { ErrorComponent } from './error/error.component';
 import { ParentComponent } from './life-cycle-hooks/parent/parent.component';
 import { NgclassComponent } from './ngclass/ngclass.component';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
+import { StudentHttpAddComponent } from './student-http/student-http-add/student-http-add.component';
+import { StudentHttpEditComponent } from './student-http/student-http-edit/student-http-edit.component';
 import { StudentHttpListComponent } from './student-http/student-http-list/student-http-list.component';
 import { StudentHttpViewComponent } from './student-http/student-http-view/student-http-view.component';
 import { StudentListComponent } from './student-list/student-list.component';
@@ -22,7 +24,8 @@ const routes: Routes = [
   { path: 'student-list', component: StudentListComponent },
   { path: 'student-list-http', component: StudentHttpListComponent },
   { path: 'student-view-http/:studId', component: StudentHttpViewComponent }, // http://localhost:4444/student-view-http/103
-  
+  { path: 'student-add-http', component: StudentHttpAddComponent },
+  { path: 'student-edit-http/:sId', component: StudentHttpEditComponent },
   { path: 'todo', component: TodoAnimationComponent },
   { path: 'ng-class', component: NgclassComponent },
   { path: 'parent', component: ParentComponent },

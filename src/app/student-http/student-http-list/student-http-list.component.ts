@@ -40,7 +40,8 @@ export class StudentHttpListComponent implements OnInit {
   }
 
   addStudent(){
-    
+    // here lets navigate programatically to student-add-http
+    this.router.navigate(['student-add-http']);
   }
 
   deleteStudent(studId: number){
@@ -61,6 +62,12 @@ export class StudentHttpListComponent implements OnInit {
     // so lets inject the Router api in the constructor of this component
     // and the use it to navigate
     this.router.navigate(['student-view-http', sid]);
+
+  }
+
+  editStudent(studId: number){
+    // here navaigate to student-edit-http
+    this.router.navigate(['student-edit-http', studId]);
 
   }
 }

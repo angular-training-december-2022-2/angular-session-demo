@@ -1,0 +1,44 @@
+<div class="container">
+    <form [formGroup]="reactiveForm" (ngSubmit)="updateData()">
+        <div class="card">
+            <div class="card-title bg-primary text-light">
+                <h4 class="m-2">Edit A Student</h4>
+            </div>
+            <div class="card-body">
+
+                <div formGroupName="personalData">
+                    <div class="form-group">
+                        <label for="sName">Student Name: </label>
+                        <input type="text" class="form-control" id="sName" formControlName="rsName">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sMark">Student Mark: </label>
+                        <select class="form-control" id="sMark" formControlName="rsMark">
+                            <option *ngFor="let mark of allMarks" value="{{ mark.value }}">{{ mark.value }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sDOB">Student DOB: </label>
+                    <input type="date-local" class="form-control" id="sDOB" formControlName="rsDOB">
+                </div>
+
+                Student Gender:
+                <div class="form-check-inline">
+                    <span *ngFor="let gender of allGender">
+                        <label class="form-check-label m-1">
+                            <input type="radio" value="{{ gender.value }}" class="form-check-input" formControlName="rsGender">
+                            {{ gender.value }}
+                        </label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="card-footer bg-primary">
+                <button type="submit" class="btn btn-light text-primary mx-2">UPDATE STUDENT</button>
+            </div>
+        </div>
+    </form>
+</div>
+

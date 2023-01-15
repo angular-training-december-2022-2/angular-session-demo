@@ -26,14 +26,14 @@
                 <td>{{ student.studentTotalMarks | mypercent:2}}</td>
                 <td>{{ student.studentDOB | date:'long' | uppercase }}</td>
                 <td>{{ student.studentGender }}</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-primary" (click)="editStudent(student.id)">Edit</button></td>
                 <td><button type="button" class="btn btn-danger" (click)="deleteStudent(student.id)">Delete</button></td>
                 <td><button type="button" class="btn btn-warning" (click)="viewStudent(student.id)">View</button></td>
             </tr>
         </tbody>
     </table>
     <div>
-        <button class="btn btn-success" (click)="addStudent()">Add Test Student</button>
+        <button class="btn btn-success" (click)="addStudent()">Add New Student</button>
     </div>
 </div>
 

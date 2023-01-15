@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +27,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ErrorComponent } from './error/error.component';
 import { StudentHttpViewComponent } from './student-http/student-http-view/student-http-view.component';
 import { DemoParentHeaderComponent } from './demo-parent-header/demo-parent-header.component';
+import { StudentHttpAddComponent } from './student-http/student-http-add/student-http-add.component';
+import { StudentHttpEditComponent } from './student-http/student-http-edit/student-http-edit.component';
 
 @NgModule({
   declarations: [
@@ -46,14 +48,15 @@ import { DemoParentHeaderComponent } from './demo-parent-header/demo-parent-head
     FilterListPipe,
     ObservableDemoComponent,
     StudentHttpListComponent, 
-    WeatherComponent, HeaderComponent, FooterComponent, ErrorComponent, StudentHttpViewComponent, DemoParentHeaderComponent
+    WeatherComponent, HeaderComponent, FooterComponent, ErrorComponent, StudentHttpViewComponent, DemoParentHeaderComponent, StudentHttpAddComponent, StudentHttpEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
