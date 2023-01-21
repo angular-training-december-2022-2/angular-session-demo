@@ -29,6 +29,7 @@ import { StudentHttpViewComponent } from './student-http/student-http-view/stude
 import { DemoParentHeaderComponent } from './demo-parent-header/demo-parent-header.component';
 import { StudentHttpAddComponent } from './student-http/student-http-add/student-http-add.component';
 import { StudentHttpEditComponent } from './student-http/student-http-edit/student-http-edit.component';
+import { OnlyTextDirective } from './custom-validators/only-text.directive';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { StudentHttpEditComponent } from './student-http/student-http-edit/stude
     FilterListPipe,
     ObservableDemoComponent,
     StudentHttpListComponent, 
-    WeatherComponent, HeaderComponent, FooterComponent, ErrorComponent, StudentHttpViewComponent, DemoParentHeaderComponent, StudentHttpAddComponent, StudentHttpEditComponent
+    WeatherComponent, HeaderComponent, FooterComponent, ErrorComponent, StudentHttpViewComponent, DemoParentHeaderComponent, StudentHttpAddComponent, StudentHttpEditComponent, OnlyTextDirective
   ],
   imports: [
     BrowserModule,

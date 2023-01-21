@@ -9,20 +9,40 @@
                 <div ngModelGroup="personalData">
                     <div class="form-group">
                         <label for="sName">Student Name: </label>
-                        <input type="text" class="form-control" id="sName" name="studName" ngModel>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="sName" 
+                            name="studName" 
+                            #stName="ngModel"
+                            ngModel 
+                            required
+                            minlength="2"
+                            appOnlyText>
+                        <div class="text-danger small" *ngIf="stName.invalid && stName.touched && stName.errors?.['required']">
+                            Student Name is required!
+                        </div>
+                        <div class="text-danger small" *ngIf="stName.invalid && stName.touched && stName.errors?.['minlength'] ">
+                            Student Name should be minimum 2 characters!
+                        </div>
+                        <div class="text-danger small" *ngIf="stName.invalid && stName.touched && stName.errors?.['invalidText'] ">
+                            Student Name should contain only characters!
+                        </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="sMark">Student Mark: </label>
-                        <select class="form-control" id="sMark" name="studMark" ngModel>
+                        <select class="form-control" id="sMark" name="studMark" ngModel required #stMark="ngModel">
                             <option *ngFor="let mark of allMarks" value="{{ mark.value }}">{{ mark.value }}</option>
                         </select>
+                        <div class="text-danger small" *ngIf="stMark.invalid && stMark.touched">Student Mark is required!</div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="sDOB">Student DOB: </label>
-                    <input type="date" class="form-control" id="sDOB" name="studDOB" ngModel>
+                    <input type="date" class="form-control" id="sDOB" name="studDOB" ngModel required #stDOB="ngModel">
+                    <div class="text-danger small" *ngIf="stDOB.invalid && stDOB.touched">Student DOB is required!</div>
                 </div>
 
                 Student Gender:
@@ -38,6 +58,7 @@
 
             <div class="card-footer bg-success">
                 <button type="button" class="btn btn-light text-success" (click)="setDefault(templateForm)">SET DEFAULT</button>
+                <!-- <button type="submit" class="btn btn-light text-success" [disabled]="templateForm.invalid">ADD STUDENT</button> -->
                 <button type="submit" class="btn btn-light text-success">ADD STUDENT</button>
             </div>
         </div>

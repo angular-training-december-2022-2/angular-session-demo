@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentHttpService } from 'src/app/services/student-http.service';
 import { Student } from '../student';
@@ -10,6 +10,8 @@ import { Student } from '../student';
   styleUrls: ['./student-http-edit.component.css']
 })
 export class StudentHttpEditComponent implements OnInit {
+
+  status: string = '';
 
   editStudent: Student = {
     id: 0,
@@ -23,12 +25,17 @@ export class StudentHttpEditComponent implements OnInit {
   reactiveForm: FormGroup = new FormGroup({
     rsId: new FormControl(null),
     personalData: new FormGroup({
-      rsName: new FormControl(null),
-      rsMark: new FormControl(null),
+      // rsName: new FormControl(null, [Validators.required, Validators.minLength(2), this.onlyText]),
+      rsName: new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      rsMark: new FormControl(null, Validators.required),
     }),
-    rsDOB: new FormControl(null),
+    rsDOB: new FormControl(null, Validators.required),
     rsGender: new FormControl(null),
-  });
+  },
+  // {
+  //   updateOn: 'submit'
+  // }
+  );
 
 
   allMarks = [
@@ -70,6 +77,24 @@ export class StudentHttpEditComponent implements OnInit {
           })
         })
       }
+
+      // here we are subscribing to the  valueChanges of personalData.rsName
+      // this.reactiveForm.get('personalData.rsName')?.valueChanges.subscribe((value)=>{
+      //   console.log(value);
+      // })
+
+      // this.reactiveForm.get('personalData.rsName')?.statusChanges.subscribe((st)=>{
+      //   console.log(st);
+      // })
+
+      this.reactiveForm.valueChanges.subscribe((value)=>{
+        console.log(value);
+      })
+
+      this.reactiveForm.statusChanges.subscribe((st)=>{
+        console.log(st);
+        this.status = st;
+      })
   }
 
 
@@ -86,11 +111,29 @@ export class StudentHttpEditComponent implements OnInit {
 
     }
 
-    // send this to the back end to be update in the DB
-    this.studentHttpService.updateStudent(this.editStudent).subscribe((response)=>{
-      // navigate to student-list-http
-      this.router.navigate(['student-list-http']);
-    })
+// commenting temporarily
+
+    // // send this to the back end to be update in the DB
+    // this.studentHttpService.updateStudent(this.editStudent).subscribe((response)=>{
+    //   // navigate to student-list-http
+    //   this.router.navigate(['student-list-http']);
+    // })
     
+  }
+
+  //custom validator function
+  onlyText(control: FormControl){
+    if(control.value!=null && !/^[A-Za-z\s]*$/.test(control.value)){
+      // return ValidationErrors
+      return {
+        invalidText: true
+      }
+    }
+    return null;
+  }
+
+  addValidators(){
+    this.reactiveForm.get('personalData.rsName')?.setValidators([Validators.required, Validators.minLength(2), this.onlyText]);
+    this.reactiveForm.get('personalData.rsName')?.updateValueAndValidity();
   }
 }

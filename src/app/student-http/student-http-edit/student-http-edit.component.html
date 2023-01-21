@@ -1,6 +1,6 @@
 <div class="container">
     <form [formGroup]="reactiveForm" (ngSubmit)="updateData()">
-        <div class="card">
+        <div class="card" [ngClass]="{'border border-success':status=='VALID', 'border border-danger':status=='INVALID'}">
             <div class="card-title bg-primary text-light">
                 <h4 class="m-2">Edit A Student</h4>
             </div>
@@ -10,6 +10,15 @@
                     <div class="form-group">
                         <label for="sName">Student Name: </label>
                         <input type="text" class="form-control" id="sName" formControlName="rsName">
+                        <div class="text-danger small" *ngIf="reactiveForm.get('personalData.rsName')?.invalid && reactiveForm.get('personalData.rsName')?.touched && reactiveForm.get('personalData.rsName')?.errors?.['required']">
+                            Student Name is required!
+                        </div>
+                        <div class="text-danger small" *ngIf="reactiveForm.get('personalData.rsName')?.invalid && reactiveForm.get('personalData.rsName')?.touched && reactiveForm.get('personalData.rsName')?.errors?.['minlength'] ">
+                            Student Name should be minimum 2 characters!
+                        </div>
+                        <div class="text-danger small" *ngIf="reactiveForm.get('personalData.rsName')?.invalid && reactiveForm.get('personalData.rsName')?.touched && reactiveForm.get('personalData.rsName')?.errors?.['invalidText'] ">
+                            Student Name should contain only characters!
+                        </div>
                     </div>
                     
                     <div class="form-group">
@@ -17,11 +26,13 @@
                         <select class="form-control" id="sMark" formControlName="rsMark">
                             <option *ngFor="let mark of allMarks" value="{{ mark.value }}">{{ mark.value }}</option>
                         </select>
+                        <div class="text-danger small" *ngIf="reactiveForm.get('personalData.rsMark')?.invalid && reactiveForm.get('personalData.rsMark')?.touched">Student Mark is required!</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="sDOB">Student DOB: </label>
                     <input type="date-local" class="form-control" id="sDOB" formControlName="rsDOB">
+                    <div class="text-danger small" *ngIf="reactiveForm.get('rsDOB')?.invalid && reactiveForm.get('rsDOB')?.touched">Student DOB is required!</div>
                 </div>
 
                 Student Gender:
@@ -36,7 +47,9 @@
             </div>
 
             <div class="card-footer bg-primary">
+                <!-- <button type="submit" class="btn btn-light text-primary mx-2" [disabled]="reactiveForm.invalid">UPDATE STUDENT</button> -->
                 <button type="submit" class="btn btn-light text-primary mx-2">UPDATE STUDENT</button>
+                <button type="button" class="btn btn-light text-primary mx-2" (click)="addValidators()">ADD CUSTOM VALIDATOR</button>
             </div>
         </div>
     </form>

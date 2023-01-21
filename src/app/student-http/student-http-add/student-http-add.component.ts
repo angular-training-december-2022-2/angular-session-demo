@@ -53,14 +53,16 @@ export class StudentHttpAddComponent implements OnInit {
       studentGender: templateForm.value.studGender
     }
 
+    // temporarily commented to work/understand with form validation
+
     // next send the student object to service layer to add it to the backend
-    this.studentHttpService.addStudent(this.newStudent).subscribe((response)=>{
-      // then navigate back to student-list-http
-      this.router.navigate(['student-list-http']);
-    },
-    (error)=>{
-      console.log(error);
-    });
+    // this.studentHttpService.addStudent(this.newStudent).subscribe((response)=>{
+    //   // then navigate back to student-list-http
+    //   this.router.navigate(['student-list-http']);
+    // },
+    // (error)=>{
+    //   console.log(error);
+    // });
   }
 
   setDefault(templateForm: NgForm){

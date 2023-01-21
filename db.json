@@ -20,6 +20,13 @@
       "studentTotalMarks": 353,
       "studentDOB": "02-05-1999",
       "studentGender": "Female"
+    },
+    {
+      "id": 105,
+      "studentName": "Test",
+      "studentTotalMarks": "200",
+      "studentDOB": "2023-01-07",
+      "studentGender": "Male"
     }
   ]
 }
