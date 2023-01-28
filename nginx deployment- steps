@@ -1,0 +1,20 @@
+1) Build angular application using ng build command
+2) copy the contents of dist folder into nginx html folder
+3) add the below lines in nginx/ conf/nginx.conf file
+
+server {
+    listen 6565;
+    server_name localhost;
+   location / {
+    root html;
+    index index.html index.htm;
+    try_files $uri $uri/ /index.html;
+    }
+   error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+    root html;
+    }
+    }
+
+4) start the nginx server
+5) in a browser access the angular application using the url : http://localhost:6565
